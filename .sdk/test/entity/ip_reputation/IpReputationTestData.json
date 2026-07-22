@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "ip_reputation": {
+      "IP_REPUTATION00": {
+        "ip": "IP01",
+        "id": "IP_REPUTATION00"
+      },
+      "IP_REPUTATION01": {
+        "ip": "IP01",
+        "id": "IP_REPUTATION01"
+      },
+      "IP_REPUTATION02": {
+        "ip": "IP01",
+        "id": "IP_REPUTATION02"
+      }
+    }
+  },
+  "new": {
+    "ip_reputation": {
+      "ip_reputation_ref01": {}
+    }
+  }
+}

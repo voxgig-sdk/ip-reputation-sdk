@@ -1,0 +1,89 @@
+{
+  "existing": {
+    "detail": {
+      "DETAIL00": {
+        "abuse": {},
+        "abuse_score": 171,
+        "asn": {},
+        "company": {},
+        "elapsed_m": 174,
+        "fact": {},
+        "ip": "sb0",
+        "is_abuser": false,
+        "is_bogon": true,
+        "is_datacenter": false,
+        "is_proxy": true,
+        "is_vpn": false,
+        "known": true,
+        "location": {},
+        "non_residential_forced": true,
+        "non_residential_score": 185,
+        "rir": "sba",
+        "id": "DETAIL00"
+      },
+      "DETAIL01": {
+        "abuse": {},
+        "abuse_score": 341,
+        "asn": {},
+        "company": {},
+        "elapsed_m": 344,
+        "fact": {},
+        "ip": "s15a",
+        "is_abuser": false,
+        "is_bogon": true,
+        "is_datacenter": false,
+        "is_proxy": true,
+        "is_vpn": false,
+        "known": true,
+        "location": {},
+        "non_residential_forced": true,
+        "non_residential_score": 355,
+        "rir": "s164",
+        "id": "DETAIL01"
+      },
+      "DETAIL02": {
+        "abuse": {},
+        "abuse_score": 511,
+        "asn": {},
+        "company": {},
+        "elapsed_m": 514,
+        "fact": {},
+        "ip": "s204",
+        "is_abuser": false,
+        "is_bogon": true,
+        "is_datacenter": false,
+        "is_proxy": true,
+        "is_vpn": false,
+        "known": true,
+        "location": {},
+        "non_residential_forced": true,
+        "non_residential_score": 525,
+        "rir": "s20e",
+        "id": "DETAIL02"
+      }
+    }
+  },
+  "new": {
+    "detail": {
+      "detail_ref01": {
+        "abuse": {},
+        "abuse_score": 681,
+        "asn": {},
+        "company": {},
+        "elapsed_m": 684,
+        "fact": {},
+        "ip": "s2ae",
+        "is_abuser": false,
+        "is_bogon": true,
+        "is_datacenter": false,
+        "is_proxy": true,
+        "is_vpn": false,
+        "known": true,
+        "location": {},
+        "non_residential_forced": true,
+        "non_residential_score": 695,
+        "rir": "s2b8"
+      }
+    }
+  }
+}

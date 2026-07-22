@@ -1,0 +1,141 @@
+# Entity: detail
+
+main: kit: entity: detail: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "abuse"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "abuse_score"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "asn"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "company"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "elapsed_m"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "fact"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "ip"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_abuser"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_bogon"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_datacenter"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_proxy"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_vpn"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "known"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "location"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "non_residential_forced"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "non_residential_score"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "rir"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "detail"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "1.1.1.1"
+                kind: "param"
+                name: "id"
+                orig: "ip"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/v1/detail/{ip}"
+          parts: [
+            "v1"
+            "detail"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              ip: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

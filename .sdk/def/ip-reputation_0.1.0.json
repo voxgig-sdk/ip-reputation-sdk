@@ -1,0 +1,609 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IP Reputation API",
+    "description": "The Netbait API provides an abuse score for any IPv4 address, indicating its maliciousness on a scale from 0 to 1. It allows public access without authentication, returning real-time threat assessments based on continuously updated data.",
+    "version": "1.0.0",
+    "contact": {
+      "email": "hello@netbait.org"
+    },
+    "x-documentation": "https://netbait.org/docs"
+  },
+  "servers": [
+    {
+      "url": "https://api.netbait.org",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/v1/score/{ip}": {
+      "get": {
+        "summary": "Score an IP address",
+        "description": "Returns the abuse score for a single IPv4 address as a plain decimal number between 0 and 1. No authentication required, but a token increases your rate limit from 10 to a custom limit.",
+        "operationId": "getIpScore",
+        "tags": [
+          "IP Reputation"
+        ],
+        "parameters": [
+          {
+            "name": "ip",
+            "in": "path",
+            "description": "IPv4 address to score",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+              "example": "8.8.8.8"
+            }
+          }
+        ],
+        "security": [
+          {},
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with abuse score",
+            "headers": {
+              "RateLimit-Limit": {
+                "description": "Maximum requests per second for this token",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "description": "Requests remaining in the current window",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Reset": {
+                "description": "Unix timestamp when the counter resets",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "float",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "example": 0.0412
+                },
+                "example": "0.0412"
+              }
+            }
+          },
+          "400": {
+            "description": "The address provided is not a valid IPv4 address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "headers": {
+              "Retry-After": {
+                "description": "Number of seconds to wait before retrying",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error on server side",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/detail/{ip}": {
+      "get": {
+        "summary": "Detailed IP lookup",
+        "description": "Returns the full profile for a single IPv4 address including abuse score, network information, ASN details, location data, and threat intelligence. No authentication required, but a token increases your rate limit.",
+        "operationId": "getIpDetail",
+        "tags": [
+          "IP Reputation"
+        ],
+        "parameters": [
+          {
+            "name": "ip",
+            "in": "path",
+            "description": "IPv4 address to lookup",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+              "example": "1.1.1.1"
+            }
+          }
+        ],
+        "security": [
+          {},
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with detailed IP profile",
+            "headers": {
+              "RateLimit-Limit": {
+                "description": "Maximum requests per second for this token",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "description": "Requests remaining in the current window",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Reset": {
+                "description": "Unix timestamp when the counter resets",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IpDetail"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The address provided is not a valid IPv4 address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "headers": {
+              "Retry-After": {
+                "description": "Number of seconds to wait before retrying",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error on server side",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "nb_live_...",
+        "description": "Bearer token for authenticated requests with higher rate limits. Format: `Authorization: Bearer nb_live_...`. Tokens are issued on request by emailing hello@netbait.org with your use case and required rate limit."
+      }
+    },
+    "schemas": {
+      "IpDetail": {
+        "type": "object",
+        "description": "Detailed profile for an IPv4 address including threat intelligence, network information, and location data",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "description": "Queried IPv4 address",
+            "example": "1.1.1.1"
+          },
+          "abuse_score": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Numeric abuse score from 0 to 1. 0.00-0.30: Low threat, 0.30-0.65: Moderate threat, 0.65-1.00: High threat",
+            "example": 0
+          },
+          "non_residential_score": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Numeric score for non-residential infrastructure",
+            "example": 0
+          },
+          "non_residential_forced": {
+            "type": "boolean",
+            "description": "Whether the address is explicitly classified as non-residential",
+            "example": false
+          },
+          "known": {
+            "type": "boolean",
+            "description": "Whether the address has current reputation signals",
+            "example": false
+          },
+          "rir": {
+            "type": "string",
+            "description": "Regional Internet Registry",
+            "example": "APNIC"
+          },
+          "is_bogon": {
+            "type": "boolean",
+            "description": "Reserved or unrouted address space",
+            "example": false
+          },
+          "is_datacenter": {
+            "type": "boolean",
+            "description": "Datacenter or hosting infrastructure",
+            "example": true
+          },
+          "is_proxy": {
+            "type": "boolean",
+            "description": "Proxy infrastructure",
+            "example": false
+          },
+          "is_vpn": {
+            "type": "boolean",
+            "description": "VPN infrastructure",
+            "example": false
+          },
+          "is_abuser": {
+            "type": "boolean",
+            "description": "Address currently associated with abuse activity",
+            "example": false
+          },
+          "company": {
+            "$ref": "#/components/schemas/Company"
+          },
+          "abuse": {
+            "$ref": "#/components/schemas/AbuseContact"
+          },
+          "asn": {
+            "$ref": "#/components/schemas/ASN"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "facts": {
+            "$ref": "#/components/schemas/Facts"
+          },
+          "elapsed_ms": {
+            "type": "number",
+            "format": "float",
+            "description": "Server-side lookup time in milliseconds",
+            "example": 624.16
+          }
+        }
+      },
+      "Company": {
+        "type": "object",
+        "description": "Network owner profile",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Company or network name",
+            "example": "CLOUDFLARENET"
+          },
+          "abuser_score": {
+            "type": "string",
+            "description": "Company abuse score with severity rating",
+            "example": "0.0000 (Low)"
+          },
+          "domain": {
+            "type": "string",
+            "description": "Company domain",
+            "example": "cloudflare.com"
+          },
+          "type": {
+            "type": "string",
+            "description": "Network type (e.g., hosting, isp, business)",
+            "example": "hosting"
+          },
+          "network": {
+            "type": "string",
+            "description": "IP address range",
+            "example": "1.1.1.0 - 1.1.1.255"
+          },
+          "netname": {
+            "type": "string",
+            "description": "Network name",
+            "example": "APNIC-LABS"
+          }
+        }
+      },
+      "AbuseContact": {
+        "type": "object",
+        "description": "Abuse contact information",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Abuse contact name or identifier",
+            "example": "IRT-APNICRANDNET-AU"
+          },
+          "address": {
+            "type": "string",
+            "description": "Physical address",
+            "example": "PO Box 3646, South Brisbane, QLD 4101, Australia"
+          },
+          "email": {
+            "type": "string",
+            "description": "Abuse contact email",
+            "example": "helpdesk@apnic.net"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Abuse contact phone number",
+            "example": ""
+          }
+        }
+      },
+      "ASN": {
+        "type": "object",
+        "description": "Autonomous System Number profile",
+        "properties": {
+          "asn": {
+            "type": "integer",
+            "description": "Autonomous System Number",
+            "example": 13335
+          },
+          "abuser_score": {
+            "type": "string",
+            "description": "ASN abuse score with severity rating",
+            "example": "0.0000 (Low)"
+          },
+          "route": {
+            "type": "string",
+            "description": "BGP route prefix",
+            "example": "1.1.1.0/24"
+          },
+          "descr": {
+            "type": "string",
+            "description": "ASN description",
+            "example": "CLOUDFLARENET, AU"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country code",
+            "example": "au"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether the ASN is currently active",
+            "example": true
+          },
+          "org": {
+            "type": "string",
+            "description": "Organization name",
+            "example": "CLOUDFLARENET"
+          },
+          "domain": {
+            "type": "string",
+            "description": "Organization domain",
+            "example": "cloudflare.com"
+          },
+          "abuse": {
+            "type": "string",
+            "description": "Abuse contact email",
+            "example": "abuse@cloudflare.com"
+          },
+          "type": {
+            "type": "string",
+            "description": "Network type",
+            "example": "hosting"
+          },
+          "created": {
+            "type": "string",
+            "format": "date",
+            "description": "ASN creation date",
+            "example": "2011-08-10"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date",
+            "description": "ASN last update date",
+            "example": "2023-04-26"
+          },
+          "rir": {
+            "type": "string",
+            "description": "Regional Internet Registry",
+            "example": "APNIC"
+          }
+        }
+      },
+      "Location": {
+        "type": "object",
+        "description": "Approximate geolocation information",
+        "properties": {
+          "is_eu_member": {
+            "type": "boolean",
+            "description": "Whether the country is an EU member",
+            "example": false
+          },
+          "calling_code": {
+            "type": "string",
+            "description": "Country calling code",
+            "example": "61"
+          },
+          "currency_code": {
+            "type": "string",
+            "description": "Country currency code",
+            "example": "AUD"
+          },
+          "continent": {
+            "type": "string",
+            "description": "Continent code",
+            "example": "OC"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country name",
+            "example": "Australia"
+          },
+          "country_code": {
+            "type": "string",
+            "description": "ISO country code",
+            "example": "AU"
+          },
+          "state": {
+            "type": "string",
+            "description": "State or region",
+            "example": ""
+          },
+          "city": {
+            "type": "string",
+            "description": "City name",
+            "example": "Sydney"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Latitude coordinate",
+            "example": -33.8688
+          },
+          "longitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Longitude coordinate",
+            "example": 151.2093
+          },
+          "zip": {
+            "type": "string",
+            "description": "Postal code",
+            "example": ""
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Timezone identifier",
+            "example": "Australia/Sydney"
+          },
+          "local_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Local time at the location",
+            "example": "2026-07-14T00:32:49+10:00"
+          },
+          "local_time_unix": {
+            "type": "integer",
+            "description": "Local time as Unix timestamp",
+            "example": 1783953169
+          },
+          "is_dst": {
+            "type": "boolean",
+            "description": "Whether daylight saving time is active",
+            "example": false
+          },
+          "utcoffset": {
+            "type": "string",
+            "description": "UTC offset",
+            "example": "+10:00"
+          },
+          "accuracy": {
+            "type": "string",
+            "description": "Location accuracy level (LOW, MEDIUM, HIGH)",
+            "example": "MEDIUM"
+          }
+        }
+      },
+      "Facts": {
+        "type": "object",
+        "description": "Reputation facts for the address when available",
+        "properties": {
+          "known": {
+            "type": "boolean",
+            "description": "Whether the address has known reputation signals",
+            "example": false
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "description": "Error response",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message",
+            "example": "The address provided is not a valid IPv4 address"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code",
+            "example": 400
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "IP Reputation",
+      "description": "IP reputation and threat intelligence endpoints"
+    }
+  ],
+  "x-rate-limit": {
+    "unauthenticated": "10 requests per second per client IP",
+    "authenticated": "Custom limit based on token configuration"
+  }
+}

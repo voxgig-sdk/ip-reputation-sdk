@@ -1,0 +1,32 @@
+# BasicIpReputationFlow
+
+main: kit: flow: BasicIpReputationFlow:
+{
+  entity: "ip_reputation",
+  kind: "basic",
+  name: "BasicIpReputationFlow",
+  step: [
+    {
+      input: {
+        ref: "ip_reputation_ref01",
+        srcdatavar: "ip_reputation_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "ip_reputation01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ip_reputation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIpReputationFlow"
+}

@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// IpReputation SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+IpReputationUtility::setRegistrar(function (IpReputationUtility $u): void {
+    $u->clean = [IpReputationClean::class, 'call'];
+    $u->done = [IpReputationDone::class, 'call'];
+    $u->make_error = [IpReputationMakeError::class, 'call'];
+    $u->feature_add = [IpReputationFeatureAdd::class, 'call'];
+    $u->feature_hook = [IpReputationFeatureHook::class, 'call'];
+    $u->feature_init = [IpReputationFeatureInit::class, 'call'];
+    $u->fetcher = [IpReputationFetcher::class, 'call'];
+    $u->make_fetch_def = [IpReputationMakeFetchDef::class, 'call'];
+    $u->make_context = [IpReputationMakeContext::class, 'call'];
+    $u->make_options = [IpReputationMakeOptions::class, 'call'];
+    $u->make_request = [IpReputationMakeRequest::class, 'call'];
+    $u->make_response = [IpReputationMakeResponse::class, 'call'];
+    $u->make_result = [IpReputationMakeResult::class, 'call'];
+    $u->make_point = [IpReputationMakePoint::class, 'call'];
+    $u->make_spec = [IpReputationMakeSpec::class, 'call'];
+    $u->make_url = [IpReputationMakeUrl::class, 'call'];
+    $u->param = [IpReputationParam::class, 'call'];
+    $u->prepare_auth = [IpReputationPrepareAuth::class, 'call'];
+    $u->prepare_body = [IpReputationPrepareBody::class, 'call'];
+    $u->prepare_headers = [IpReputationPrepareHeaders::class, 'call'];
+    $u->prepare_method = [IpReputationPrepareMethod::class, 'call'];
+    $u->prepare_params = [IpReputationPrepareParams::class, 'call'];
+    $u->prepare_path = [IpReputationPreparePath::class, 'call'];
+    $u->prepare_query = [IpReputationPrepareQuery::class, 'call'];
+    $u->result_basic = [IpReputationResultBasic::class, 'call'];
+    $u->result_body = [IpReputationResultBody::class, 'call'];
+    $u->result_headers = [IpReputationResultHeaders::class, 'call'];
+    $u->transform_request = [IpReputationTransformRequest::class, 'call'];
+    $u->transform_response = [IpReputationTransformResponse::class, 'call'];
+});

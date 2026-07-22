@@ -1,0 +1,32 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "hello@netbait.org"
+      }
+      description: "The Netbait API provides an abuse score for any IPv4 address, indicating its maliciousness on a scale from 0 to 1. It allows public access without authentication, returning real-time threat assessments based on continuously updated data."
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "BearerAuth"
+        type: "http"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.netbait.org"
+        }
+      ]
+      summary: "The Netbait API provides an abuse score for any IPv4 address, indicating its maliciousness on a scale from 0 to 1."
+      title: "IP Reputation API"
+      version: "1.0.0"
+      website: "https://netbait.org"
+      "x-documentation": "https://netbait.org/docs"
+    }
+  }
+}
+

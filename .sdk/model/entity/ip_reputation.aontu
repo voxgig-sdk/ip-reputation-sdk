@@ -1,0 +1,56 @@
+# Entity: ip_reputation
+
+main: kit: entity: ip_reputation: {
+
+  alias: field: {}
+
+  name: "ip_reputation"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "8.8.8.8"
+                kind: "param"
+                name: "ip"
+                orig: "ip"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/v1/score/{ip}"
+          parts: [
+            "v1"
+            "score"
+            "{ip}"
+          ]
+          select: {
+            exist: [
+              "ip"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "score"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,21 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 2
+  metrics: count: method: 2
+
+  entity: detail: {
+    path: "/v1/detail/{ip}": {
+      rename: param: "ip": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: ip_reputation: {
+    path: "/v1/score/{ip}": {
+      op: load: method: *GET
+    }
+  }
+
+}
