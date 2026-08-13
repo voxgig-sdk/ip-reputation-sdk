@@ -68,16 +68,16 @@ function ip_reputation_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["IPREPUTATION_TEST_IP_REPUTATION_ENTID"] = {},
-    ["IPREPUTATION_TEST_LIVE"] = "FALSE",
-    ["IPREPUTATION_APIKEY"] = "NONE",
+    ["IP_REPUTATION_TEST_IP_REPUTATION_ENTID"] = {},
+    ["IP_REPUTATION_TEST_LIVE"] = "FALSE",
+    ["IP_REPUTATION_APIKEY"] = "NONE",
   })
 
-  local live = env["IPREPUTATION_TEST_LIVE"] == "TRUE"
+  local live = env["IP_REPUTATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["IPREPUTATION_APIKEY"],
+      apikey = env["IP_REPUTATION_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

@@ -11,8 +11,8 @@
 ---@field abuse_score? number
 ---@field asn? table
 ---@field company? table
----@field elapsed_m? number
----@field fact? table
+---@field elapsed_ms? number
+---@field facts? table
 ---@field ip? string
 ---@field is_abuser? boolean
 ---@field is_bogon? boolean

@@ -26,8 +26,8 @@ import {
 describe('DetailEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when IPREPUTATION_TEST_LIVE=TRUE.
-  afterEach(liveDelay('IPREPUTATION_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when IP_REPUTATION_TEST_LIVE=TRUE.
+  afterEach(liveDelay('IP_REPUTATION_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = IpReputationSDK.test()

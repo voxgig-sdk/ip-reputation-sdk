@@ -236,8 +236,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `abuse_score` |  |
 | `asn` |  |
 | `company` |  |
-| `elapsed_m` |  |
-| `fact` |  |
+| `elapsed_ms` |  |
+| `facts` |  |
 | `ip` |  |
 | `is_abuser` |  |
 | `is_bogon` |  |
@@ -286,8 +286,8 @@ Create an instance: `local detail = client:Detail(nil)`
 | `abuse_score` | `number` |  |
 | `asn` | `table` |  |
 | `company` | `table` |  |
-| `elapsed_m` | `number` |  |
-| `fact` | `table` |  |
+| `elapsed_ms` | `number` |  |
+| `facts` | `table` |  |
 | `ip` | `string` |  |
 | `is_abuser` | `boolean` |  |
 | `is_bogon` | `boolean` |  |

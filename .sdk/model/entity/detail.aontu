@@ -26,12 +26,12 @@ main: kit: entity: detail: {
       type: "`$OBJECT`"
     }
     {
-      name: "elapsed_m"
+      name: "elapsed_ms"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "fact"
+      name: "facts"
       req: false
       type: "`$OBJECT`"
     }

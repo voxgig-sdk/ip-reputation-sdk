@@ -133,8 +133,8 @@ const detail = client.Detail()
 | `abuse_score` | `number` | No |  |
 | `asn` | `Record<string, any>` | No |  |
 | `company` | `Record<string, any>` | No |  |
-| `elapsed_m` | `number` | No |  |
-| `fact` | `Record<string, any>` | No |  |
+| `elapsed_ms` | `number` | No |  |
+| `facts` | `Record<string, any>` | No |  |
 | `ip` | `string` | No |  |
 | `is_abuser` | `boolean` | No |  |
 | `is_bogon` | `boolean` | No |  |

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from ipreputation_sdk.utility.voxgig_struct import voxgig_struct as vs
 from ipreputation_sdk import IpReputationSDK
-from core import helpers
+from ipreputation_sdk.core import helpers
 from test import runner
 
 
@@ -63,16 +63,16 @@ def _ip_reputation_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "IPREPUTATION_TEST_IP_REPUTATION_ENTID": {},
-        "IPREPUTATION_TEST_LIVE": "FALSE",
-        "IPREPUTATION_APIKEY": "NONE",
+        "IP_REPUTATION_TEST_IP_REPUTATION_ENTID": {},
+        "IP_REPUTATION_TEST_LIVE": "FALSE",
+        "IP_REPUTATION_APIKEY": "NONE",
     })
 
-    live = env.get("IPREPUTATION_TEST_LIVE") == "TRUE"
+    live = env.get("IP_REPUTATION_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("IPREPUTATION_APIKEY"),
+            "apikey": env.get("IP_REPUTATION_APIKEY"),
         }
         client = IpReputationSDK(merged_opts)
         return {

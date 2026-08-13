@@ -19,8 +19,8 @@ class Detail
     public ?float $abuse_score = null;
     public ?array $asn = null;
     public ?array $company = null;
-    public ?float $elapsed_m = null;
-    public ?array $fact = null;
+    public ?float $elapsed_ms = null;
+    public ?array $facts = null;
     public ?string $ip = null;
     public ?bool $is_abuser = null;
     public ?bool $is_bogon = null;

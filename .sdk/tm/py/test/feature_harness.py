@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import IpReputationControl
-from core.error import IpReputationError
-from core.result import IpReputationResult
-from core.spec import IpReputationSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import IpReputationControl
+from projectname_sdk.core.error import IpReputationError
+from projectname_sdk.core.result import IpReputationResult
+from projectname_sdk.core.spec import IpReputationSpec
 
 
 # True when this SDK was generated with the named feature.

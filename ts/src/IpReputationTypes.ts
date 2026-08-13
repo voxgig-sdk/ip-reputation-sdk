@@ -10,8 +10,8 @@ export interface Detail {
   abuse_score?: number
   asn?: Record<string, any>
   company?: Record<string, any>
-  elapsed_m?: number
-  fact?: Record<string, any>
+  elapsed_ms?: number
+  facts?: Record<string, any>
   ip?: string
   is_abuser?: boolean
   is_bogon?: boolean

@@ -42,7 +42,7 @@ client = IpReputationSDK({
 ### 3. Load an ipreputation
 
 IpReputation is nested under ip, so provide the `ip`.
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -126,7 +126,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = IpReputationSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 detail = client.Detail().load({"id": "test01"})
 # detail contains the mock response record
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -251,8 +252,8 @@ On error, `ok` is `False` and `err` contains the error value.
 | `abuse_score` |  |
 | `asn` |  |
 | `company` |  |
-| `elapsed_m` |  |
-| `fact` |  |
+| `elapsed_ms` |  |
+| `facts` |  |
 | `ip` |  |
 | `is_abuser` |  |
 | `is_bogon` |  |
@@ -301,8 +302,8 @@ Create an instance: `detail = client.Detail()`
 | `abuse_score` | `float` |  |
 | `asn` | `dict` |  |
 | `company` | `dict` |  |
-| `elapsed_m` | `float` |  |
-| `fact` | `dict` |  |
+| `elapsed_ms` | `float` |  |
+| `facts` | `dict` |  |
 | `ip` | `str` |  |
 | `is_abuser` | `bool` |  |
 | `is_bogon` | `bool` |  |

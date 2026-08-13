@@ -16,11 +16,11 @@
 import pytest
 
 from ipreputation_sdk import IpReputationSDK
-from core.error import IpReputationError
-from core.result import IpReputationResult
-from core.response import IpReputationResponse
-from core.spec import IpReputationSpec
-from feature.base_feature import IpReputationBaseFeature
+from ipreputation_sdk.core.error import IpReputationError
+from ipreputation_sdk.core.result import IpReputationResult
+from ipreputation_sdk.core.response import IpReputationResponse
+from ipreputation_sdk.core.spec import IpReputationSpec
+from ipreputation_sdk.feature.base_feature import IpReputationBaseFeature
 
 
 def _client():

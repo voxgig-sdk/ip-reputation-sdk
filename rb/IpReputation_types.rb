@@ -22,10 +22,10 @@
 # @!attribute [rw] company
 #   @return [Hash, nil]
 #
-# @!attribute [rw] elapsed_m
+# @!attribute [rw] elapsed_ms
 #   @return [Float, nil]
 #
-# @!attribute [rw] fact
+# @!attribute [rw] facts
 #   @return [Hash, nil]
 #
 # @!attribute [rw] ip
@@ -65,8 +65,8 @@ Detail = Struct.new(
   :abuse_score,
   :asn,
   :company,
-  :elapsed_m,
-  :fact,
+  :elapsed_ms,
+  :facts,
   :ip,
   :is_abuser,
   :is_bogon,

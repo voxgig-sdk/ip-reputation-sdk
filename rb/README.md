@@ -38,7 +38,7 @@ IpReputation is nested under ip, so provide the `ip`.
 
 ```ruby
 begin
-  # load returns the bare IpReputation record (raises on error).
+  # load returns the ENTITY — call data_get for the IpReputation record (raises on error).
   ipreputation = client.IpReputation.load({ "ip" => "example_ip" })
   puts ipreputation
 rescue => err
@@ -124,7 +124,8 @@ client = IpReputationSDK.test({
   "entity" => { "detail" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 detail = client.Detail.load({ "id" => "test01" })
 puts detail
 ```
@@ -248,8 +249,8 @@ returns a result `Hash` with these keys:
 | `abuse_score` |  |
 | `asn` |  |
 | `company` |  |
-| `elapsed_m` |  |
-| `fact` |  |
+| `elapsed_ms` |  |
+| `facts` |  |
 | `ip` |  |
 | `is_abuser` |  |
 | `is_bogon` |  |
@@ -298,8 +299,8 @@ Create an instance: `detail = client.Detail`
 | `abuse_score` | `Float` |  |
 | `asn` | `Hash` |  |
 | `company` | `Hash` |  |
-| `elapsed_m` | `Float` |  |
-| `fact` | `Hash` |  |
+| `elapsed_ms` | `Float` |  |
+| `facts` | `Hash` |  |
 | `ip` | `String` |  |
 | `is_abuser` | `Boolean` |  |
 | `is_bogon` | `Boolean` |  |
@@ -315,7 +316,7 @@ Create an instance: `detail = client.Detail`
 #### Example: Load
 
 ```ruby
-# load returns the bare Detail record (raises on error).
+# load returns the ENTITY — call data_get for the Detail record (raises on error).
 detail = client.Detail.load({ "id" => "detail_id" })
 ```
 
@@ -333,7 +334,7 @@ Create an instance: `ip_reputation = client.IpReputation`
 #### Example: Load
 
 ```ruby
-# load returns the bare IpReputation record (raises on error).
+# load returns the ENTITY — call data_get for the IpReputation record (raises on error).
 ip_reputation = client.IpReputation.load({ "ip" => "ip" })
 ```
 

@@ -39,7 +39,7 @@ IpReputation is nested under ip, so provide the `ip`.
 
 ```php
 try {
-    // load() returns the bare IpReputation record (throws on error).
+    // load() returns the ENTITY — call data_get() for the IpReputation record (throws on error).
     $ipreputation = $client->IpReputation()->load(["ip" => "example_ip"]);
     print_r($ipreputation);
 } catch (\Throwable $err) {
@@ -130,7 +130,8 @@ $client = IpReputationSDK::test([
     "entity" => ["detail" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $detail = $client->Detail()->load(["id" => "test01"]);
 print_r($detail);
 ```
@@ -232,7 +233,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -258,8 +259,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `abuse_score` |  |
 | `asn` |  |
 | `company` |  |
-| `elapsed_m` |  |
-| `fact` |  |
+| `elapsed_ms` |  |
+| `facts` |  |
 | `ip` |  |
 | `is_abuser` |  |
 | `is_bogon` |  |
@@ -308,8 +309,8 @@ Create an instance: `$detail = $client->Detail();`
 | `abuse_score` | `float` |  |
 | `asn` | `array` |  |
 | `company` | `array` |  |
-| `elapsed_m` | `float` |  |
-| `fact` | `array` |  |
+| `elapsed_ms` | `float` |  |
+| `facts` | `array` |  |
 | `ip` | `string` |  |
 | `is_abuser` | `bool` |  |
 | `is_bogon` | `bool` |  |
@@ -325,7 +326,7 @@ Create an instance: `$detail = $client->Detail();`
 #### Example: Load
 
 ```php
-// load() returns the bare Detail record (throws on error).
+// load() returns the ENTITY — call data_get() for the Detail record (throws on error).
 $detail = $client->Detail()->load(["id" => "detail_id"]);
 ```
 
@@ -343,7 +344,7 @@ Create an instance: `$ip_reputation = $client->IpReputation();`
 #### Example: Load
 
 ```php
-// load() returns the bare IpReputation record (throws on error).
+// load() returns the ENTITY — call data_get() for the IpReputation record (throws on error).
 $ip_reputation = $client->IpReputation()->load(["ip" => "ip"]);
 ```
 

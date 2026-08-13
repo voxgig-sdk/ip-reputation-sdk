@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'IpReputation',
   }
 
 
@@ -91,14 +91,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "elapsed_m",
+          "name": "elapsed_ms",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "fact",
+          "name": "facts",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 5
@@ -203,6 +203,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/v1/detail/{ip}",
               "parts": [
@@ -258,6 +259,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/v1/score/{ip}",
               "parts": [

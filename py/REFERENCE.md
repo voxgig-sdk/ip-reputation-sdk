@@ -96,8 +96,8 @@ detail = client.Detail()
 | `abuse_score` | `float` | No |  |
 | `asn` | `dict` | No |  |
 | `company` | `dict` | No |  |
-| `elapsed_m` | `float` | No |  |
-| `fact` | `dict` | No |  |
+| `elapsed_ms` | `float` | No |  |
+| `facts` | `dict` | No |  |
 | `ip` | `str` | No |  |
 | `is_abuser` | `bool` | No |  |
 | `is_bogon` | `bool` | No |  |

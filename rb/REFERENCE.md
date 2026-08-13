@@ -102,8 +102,8 @@ detail = client.Detail
 | `abuse_score` | `Float` | No |  |
 | `asn` | `Hash` | No |  |
 | `company` | `Hash` | No |  |
-| `elapsed_m` | `Float` | No |  |
-| `fact` | `Hash` | No |  |
+| `elapsed_ms` | `Float` | No |  |
+| `facts` | `Hash` | No |  |
 | `ip` | `String` | No |  |
 | `is_abuser` | `Boolean` | No |  |
 | `is_bogon` | `Boolean` | No |  |

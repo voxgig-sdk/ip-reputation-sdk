@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new IpReputationSDK()
-const detail = await client.Detail().load()
+const detail = await client.Detail().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = IpReputationSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = IpReputationSDK.test({
+  entity: {
+    detail: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const detail = await client.Detail().load({ id: 'test01' })
-// detail is a bare Detail populated with mock data
+// detail is the Detail entity, populated with mock data
+// — call detail.data() for the record itself
 console.log(detail)
 ```
 
@@ -193,7 +202,7 @@ $client = new IpReputationSDK([
 ]);
 
 
-// Load a specific detail (returns the bare record; throws on error)
+// Load a specific detail (returns the ENTITY; call data_get() for the record; throws on error)
 $detail = $client->Detail()->load(["id" => "example_id"]);
 print_r($detail);
 ```
@@ -228,7 +237,7 @@ client = IpReputationSDK.new({
 })
 
 
-# Load a specific detail (returns the bare record; raises on error)
+# Load a specific detail (returns the ENTITY; call data_get for the record)
 detail = client.Detail.load({ "id" => "example_id" })
 puts detail
 ```
@@ -364,6 +373,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://api.netbait.org](https://api.netbait.org)
 

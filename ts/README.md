@@ -126,7 +126,8 @@ Create a mock client for unit testing — no server required:
 const client = IpReputationSDK.test()
 
 const detail = await client.Detail().load({ id: 'test01' })
-// detail is a bare entity populated with mock response data
+// detail is the entity, populated with mock response data
+// — call detail.data() for the record itself
 console.log(detail)
 ```
 
@@ -298,8 +299,8 @@ The `prepare()` method returns:
 | `abuse_score` |  |
 | `asn` |  |
 | `company` |  |
-| `elapsed_m` |  |
-| `fact` |  |
+| `elapsed_ms` |  |
+| `facts` |  |
 | `ip` |  |
 | `is_abuser` |  |
 | `is_bogon` |  |
@@ -348,8 +349,8 @@ Create an instance: `const detail = client.Detail()`
 | `abuse_score` | `number` |  |
 | `asn` | `Record<string, any>` |  |
 | `company` | `Record<string, any>` |  |
-| `elapsed_m` | `number` |  |
-| `fact` | `Record<string, any>` |  |
+| `elapsed_ms` | `number` |  |
+| `facts` | `Record<string, any>` |  |
 | `ip` | `string` |  |
 | `is_abuser` | `boolean` |  |
 | `is_bogon` | `boolean` |  |

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# IpReputation SDK exists test
 
 import pytest
 from ipreputation_sdk import IpReputationSDK

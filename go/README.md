@@ -268,8 +268,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"abuse_score"` |  |
 | `"asn"` |  |
 | `"company"` |  |
-| `"elapsed_m"` |  |
-| `"fact"` |  |
+| `"elapsed_ms"` |  |
+| `"facts"` |  |
 | `"ip"` |  |
 | `"is_abuser"` |  |
 | `"is_bogon"` |  |
@@ -318,8 +318,8 @@ Create an instance: `detail := client.Detail(nil)`
 | `abuse_score` | `float64` |  |
 | `asn` | `map[string]any` |  |
 | `company` | `map[string]any` |  |
-| `elapsed_m` | `float64` |  |
-| `fact` | `map[string]any` |  |
+| `elapsed_ms` | `float64` |  |
+| `facts` | `map[string]any` |  |
 | `ip` | `string` |  |
 | `is_abuser` | `bool` |  |
 | `is_bogon` | `bool` |  |

@@ -58,14 +58,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "elapsed_m",
+            ["name"] = "elapsed_ms",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
             ["index$"] = 4,
           },
           {
             ["active"] = true,
-            ["name"] = "fact",
+            ["name"] = "facts",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 5,
@@ -170,6 +170,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/detail/{ip}",
                 ["parts"] = {
@@ -225,6 +226,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/score/{ip}",
                 ["parts"] = {

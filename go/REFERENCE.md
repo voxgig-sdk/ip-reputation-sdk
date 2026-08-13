@@ -107,8 +107,8 @@ fmt.Println(detail.GetName()) // "detail"
 | `abuse_score` | `float64` | No |  |
 | `asn` | `map[string]any` | No |  |
 | `company` | `map[string]any` | No |  |
-| `elapsed_m` | `float64` | No |  |
-| `fact` | `map[string]any` | No |  |
+| `elapsed_ms` | `float64` | No |  |
+| `facts` | `map[string]any` | No |  |
 | `ip` | `string` | No |  |
 | `is_abuser` | `bool` | No |  |
 | `is_bogon` | `bool` | No |  |

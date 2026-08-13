@@ -101,8 +101,8 @@ $detail = $client->Detail();
 | `abuse_score` | `float` | No |  |
 | `asn` | `array` | No |  |
 | `company` | `array` | No |  |
-| `elapsed_m` | `float` | No |  |
-| `fact` | `array` | No |  |
+| `elapsed_ms` | `float` | No |  |
+| `facts` | `array` | No |  |
 | `ip` | `string` | No |  |
 | `is_abuser` | `bool` | No |  |
 | `is_bogon` | `bool` | No |  |

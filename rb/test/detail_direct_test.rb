@@ -67,16 +67,16 @@ def detail_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "IPREPUTATION_TEST_DETAIL_ENTID" => {},
-    "IPREPUTATION_TEST_LIVE" => "FALSE",
-    "IPREPUTATION_APIKEY" => "NONE",
+    "IP_REPUTATION_TEST_DETAIL_ENTID" => {},
+    "IP_REPUTATION_TEST_LIVE" => "FALSE",
+    "IP_REPUTATION_APIKEY" => "NONE",
   })
 
-  live = env["IPREPUTATION_TEST_LIVE"] == "TRUE"
+  live = env["IP_REPUTATION_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["IPREPUTATION_APIKEY"],
+      "apikey" => env["IP_REPUTATION_APIKEY"],
     }
     client = IpReputationSDK.new(merged_opts)
     return {
