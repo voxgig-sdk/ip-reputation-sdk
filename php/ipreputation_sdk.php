@@ -40,7 +40,7 @@ class IpReputationSDK
         $utility = new IpReputationUtility();
         $this->_utility = $utility;
 
-        $config = IpReputationConfig::make_config();
+        $config = IpReputationConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

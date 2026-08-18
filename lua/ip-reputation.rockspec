@@ -23,6 +23,7 @@ build = {
   modules = {
     ["ip-reputation_sdk"] = "ip-reputation_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

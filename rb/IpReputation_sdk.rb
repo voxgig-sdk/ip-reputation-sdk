@@ -28,7 +28,7 @@ class IpReputationSDK
     utility = IpReputationUtility.new
     @_utility = utility
 
-    config = IpReputationConfig.make_config
+    config = IpReputationConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

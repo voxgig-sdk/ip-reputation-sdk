@@ -1,6 +1,20 @@
 # IpReputation SDK configuration
 
 module IpReputationConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -30,123 +44,72 @@ module IpReputationConfig
         "detail" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "abuse",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "abuse_score",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "asn",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "company",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "elapsed_ms",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "facts",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "ip",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "is_abuser",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "is_bogon",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "is_datacenter",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "is_proxy",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "is_vpn",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "known",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "location",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "non_residential_forced",
-              "req" => false,
               "type" => "`$BOOLEAN`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "non_residential_score",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "rir",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 16,
             },
           ],
           "name" => "detail",
@@ -156,18 +119,15 @@ module IpReputationConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => "1.1.1.1",
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "ip",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -193,10 +153,8 @@ module IpReputationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -212,18 +170,15 @@ module IpReputationConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => "8.8.8.8",
                         "kind" => "param",
                         "name" => "ip",
                         "orig" => "ip",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -244,10 +199,8 @@ module IpReputationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
