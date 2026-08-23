@@ -245,23 +245,23 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `abuse` |  |
-| `abuse_score` |  |
-| `asn` |  |
-| `company` |  |
-| `elapsed_ms` |  |
-| `facts` |  |
-| `ip` |  |
-| `is_abuser` |  |
-| `is_bogon` |  |
-| `is_datacenter` |  |
-| `is_proxy` |  |
-| `is_vpn` |  |
-| `known` |  |
-| `location` |  |
-| `non_residential_forced` |  |
-| `non_residential_score` |  |
-| `rir` |  |
+| `abuse` | Abuse contact information |
+| `abuse_score` | Numeric abuse score from 0 to 1. |
+| `asn` | Autonomous System Number profile |
+| `company` | Network owner profile |
+| `elapsed_ms` | Server-side lookup time in milliseconds |
+| `facts` | Reputation facts for the address when available |
+| `ip` | Queried IPv4 address |
+| `is_abuser` | Address currently associated with abuse activity |
+| `is_bogon` | Reserved or unrouted address space |
+| `is_datacenter` | Datacenter or hosting infrastructure |
+| `is_proxy` | Proxy infrastructure |
+| `is_vpn` | VPN infrastructure |
+| `known` | Whether the address has current reputation signals |
+| `location` | Approximate geolocation information |
+| `non_residential_forced` | Whether the address is explicitly classified as non-residential |
+| `non_residential_score` | Numeric score for non-residential infrastructure |
+| `rir` | Regional Internet Registry |
 
 Operations: Load.
 
@@ -295,23 +295,23 @@ Create an instance: `detail = client.Detail`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abuse` | `Hash` |  |
-| `abuse_score` | `Float` |  |
-| `asn` | `Hash` |  |
-| `company` | `Hash` |  |
-| `elapsed_ms` | `Float` |  |
-| `facts` | `Hash` |  |
-| `ip` | `String` |  |
-| `is_abuser` | `Boolean` |  |
-| `is_bogon` | `Boolean` |  |
-| `is_datacenter` | `Boolean` |  |
-| `is_proxy` | `Boolean` |  |
-| `is_vpn` | `Boolean` |  |
-| `known` | `Boolean` |  |
-| `location` | `Hash` |  |
-| `non_residential_forced` | `Boolean` |  |
-| `non_residential_score` | `Float` |  |
-| `rir` | `String` |  |
+| `abuse` | `Hash` | Abuse contact information |
+| `abuse_score` | `Float` | Numeric abuse score from 0 to 1. |
+| `asn` | `Hash` | Autonomous System Number profile |
+| `company` | `Hash` | Network owner profile |
+| `elapsed_ms` | `Float` | Server-side lookup time in milliseconds |
+| `facts` | `Hash` | Reputation facts for the address when available |
+| `ip` | `String` | Queried IPv4 address |
+| `is_abuser` | `Boolean` | Address currently associated with abuse activity |
+| `is_bogon` | `Boolean` | Reserved or unrouted address space |
+| `is_datacenter` | `Boolean` | Datacenter or hosting infrastructure |
+| `is_proxy` | `Boolean` | Proxy infrastructure |
+| `is_vpn` | `Boolean` | VPN infrastructure |
+| `known` | `Boolean` | Whether the address has current reputation signals |
+| `location` | `Hash` | Approximate geolocation information |
+| `non_residential_forced` | `Boolean` | Whether the address is explicitly classified as non-residential |
+| `non_residential_score` | `Float` | Numeric score for non-residential infrastructure |
+| `rir` | `String` | Regional Internet Registry |
 
 #### Example: Load
 

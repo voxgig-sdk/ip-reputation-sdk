@@ -36,102 +36,119 @@
               "active": true,
               "name": "abuse",
               "req": false,
+              "short": "Abuse contact information",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "abuse_score",
               "req": false,
+              "short": "Numeric abuse score from 0 to 1.",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "asn",
               "req": false,
+              "short": "Autonomous System Number profile",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "company",
               "req": false,
+              "short": "Network owner profile",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "elapsed_ms",
               "req": false,
+              "short": "Server-side lookup time in milliseconds",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "facts",
               "req": false,
+              "short": "Reputation facts for the address when available",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "ip",
               "req": false,
+              "short": "Queried IPv4 address",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_abuser",
               "req": false,
+              "short": "Address currently associated with abuse activity",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_bogon",
               "req": false,
+              "short": "Reserved or unrouted address space",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_datacenter",
               "req": false,
+              "short": "Datacenter or hosting infrastructure",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_proxy",
               "req": false,
+              "short": "Proxy infrastructure",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_vpn",
               "req": false,
+              "short": "VPN infrastructure",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "known",
               "req": false,
+              "short": "Whether the address has current reputation signals",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "location",
               "req": false,
+              "short": "Approximate geolocation information",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "non_residential_forced",
               "req": false,
+              "short": "Whether the address is explicitly classified as non-residential",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "non_residential_score",
               "req": false,
+              "short": "Numeric score for non-residential infrastructure",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "rir",
               "req": false,
+              "short": "Regional Internet Registry",
               "type": "`$STRING`"
             }
           ],

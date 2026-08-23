@@ -92,23 +92,23 @@ detail = client.Detail()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abuse` | `dict` | No |  |
-| `abuse_score` | `float` | No |  |
-| `asn` | `dict` | No |  |
-| `company` | `dict` | No |  |
-| `elapsed_ms` | `float` | No |  |
-| `facts` | `dict` | No |  |
-| `ip` | `str` | No |  |
-| `is_abuser` | `bool` | No |  |
-| `is_bogon` | `bool` | No |  |
-| `is_datacenter` | `bool` | No |  |
-| `is_proxy` | `bool` | No |  |
-| `is_vpn` | `bool` | No |  |
-| `known` | `bool` | No |  |
-| `location` | `dict` | No |  |
-| `non_residential_forced` | `bool` | No |  |
-| `non_residential_score` | `float` | No |  |
-| `rir` | `str` | No |  |
+| `abuse` | `dict` | No | Abuse contact information |
+| `abuse_score` | `float` | No | Numeric abuse score from 0 to 1. |
+| `asn` | `dict` | No | Autonomous System Number profile |
+| `company` | `dict` | No | Network owner profile |
+| `elapsed_ms` | `float` | No | Server-side lookup time in milliseconds |
+| `facts` | `dict` | No | Reputation facts for the address when available |
+| `ip` | `str` | No | Queried IPv4 address |
+| `is_abuser` | `bool` | No | Address currently associated with abuse activity |
+| `is_bogon` | `bool` | No | Reserved or unrouted address space |
+| `is_datacenter` | `bool` | No | Datacenter or hosting infrastructure |
+| `is_proxy` | `bool` | No | Proxy infrastructure |
+| `is_vpn` | `bool` | No | VPN infrastructure |
+| `known` | `bool` | No | Whether the address has current reputation signals |
+| `location` | `dict` | No | Approximate geolocation information |
+| `non_residential_forced` | `bool` | No | Whether the address is explicitly classified as non-residential |
+| `non_residential_score` | `float` | No | Numeric score for non-residential infrastructure |
+| `rir` | `str` | No | Regional Internet Registry |
 
 ### Operations
 

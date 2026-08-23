@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -295,23 +295,23 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `abuse` |  |
-| `abuse_score` |  |
-| `asn` |  |
-| `company` |  |
-| `elapsed_ms` |  |
-| `facts` |  |
-| `ip` |  |
-| `is_abuser` |  |
-| `is_bogon` |  |
-| `is_datacenter` |  |
-| `is_proxy` |  |
-| `is_vpn` |  |
-| `known` |  |
-| `location` |  |
-| `non_residential_forced` |  |
-| `non_residential_score` |  |
-| `rir` |  |
+| `abuse` | Abuse contact information |
+| `abuse_score` | Numeric abuse score from 0 to 1. |
+| `asn` | Autonomous System Number profile |
+| `company` | Network owner profile |
+| `elapsed_ms` | Server-side lookup time in milliseconds |
+| `facts` | Reputation facts for the address when available |
+| `ip` | Queried IPv4 address |
+| `is_abuser` | Address currently associated with abuse activity |
+| `is_bogon` | Reserved or unrouted address space |
+| `is_datacenter` | Datacenter or hosting infrastructure |
+| `is_proxy` | Proxy infrastructure |
+| `is_vpn` | VPN infrastructure |
+| `known` | Whether the address has current reputation signals |
+| `location` | Approximate geolocation information |
+| `non_residential_forced` | Whether the address is explicitly classified as non-residential |
+| `non_residential_score` | Numeric score for non-residential infrastructure |
+| `rir` | Regional Internet Registry |
 
 Operations: load.
 
@@ -345,23 +345,23 @@ Create an instance: `const detail = client.Detail()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abuse` | `Record<string, any>` |  |
-| `abuse_score` | `number` |  |
-| `asn` | `Record<string, any>` |  |
-| `company` | `Record<string, any>` |  |
-| `elapsed_ms` | `number` |  |
-| `facts` | `Record<string, any>` |  |
-| `ip` | `string` |  |
-| `is_abuser` | `boolean` |  |
-| `is_bogon` | `boolean` |  |
-| `is_datacenter` | `boolean` |  |
-| `is_proxy` | `boolean` |  |
-| `is_vpn` | `boolean` |  |
-| `known` | `boolean` |  |
-| `location` | `Record<string, any>` |  |
-| `non_residential_forced` | `boolean` |  |
-| `non_residential_score` | `number` |  |
-| `rir` | `string` |  |
+| `abuse` | `Record<string, any>` | Abuse contact information |
+| `abuse_score` | `number` | Numeric abuse score from 0 to 1. |
+| `asn` | `Record<string, any>` | Autonomous System Number profile |
+| `company` | `Record<string, any>` | Network owner profile |
+| `elapsed_ms` | `number` | Server-side lookup time in milliseconds |
+| `facts` | `Record<string, any>` | Reputation facts for the address when available |
+| `ip` | `string` | Queried IPv4 address |
+| `is_abuser` | `boolean` | Address currently associated with abuse activity |
+| `is_bogon` | `boolean` | Reserved or unrouted address space |
+| `is_datacenter` | `boolean` | Datacenter or hosting infrastructure |
+| `is_proxy` | `boolean` | Proxy infrastructure |
+| `is_vpn` | `boolean` | VPN infrastructure |
+| `known` | `boolean` | Whether the address has current reputation signals |
+| `location` | `Record<string, any>` | Approximate geolocation information |
+| `non_residential_forced` | `boolean` | Whether the address is explicitly classified as non-residential |
+| `non_residential_score` | `number` | Numeric score for non-residential infrastructure |
+| `rir` | `string` | Regional Internet Registry |
 
 #### Example: Load
 

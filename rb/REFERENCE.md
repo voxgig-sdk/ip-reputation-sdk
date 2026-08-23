@@ -98,23 +98,23 @@ detail = client.Detail
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abuse` | `Hash` | No |  |
-| `abuse_score` | `Float` | No |  |
-| `asn` | `Hash` | No |  |
-| `company` | `Hash` | No |  |
-| `elapsed_ms` | `Float` | No |  |
-| `facts` | `Hash` | No |  |
-| `ip` | `String` | No |  |
-| `is_abuser` | `Boolean` | No |  |
-| `is_bogon` | `Boolean` | No |  |
-| `is_datacenter` | `Boolean` | No |  |
-| `is_proxy` | `Boolean` | No |  |
-| `is_vpn` | `Boolean` | No |  |
-| `known` | `Boolean` | No |  |
-| `location` | `Hash` | No |  |
-| `non_residential_forced` | `Boolean` | No |  |
-| `non_residential_score` | `Float` | No |  |
-| `rir` | `String` | No |  |
+| `abuse` | `Hash` | No | Abuse contact information |
+| `abuse_score` | `Float` | No | Numeric abuse score from 0 to 1. |
+| `asn` | `Hash` | No | Autonomous System Number profile |
+| `company` | `Hash` | No | Network owner profile |
+| `elapsed_ms` | `Float` | No | Server-side lookup time in milliseconds |
+| `facts` | `Hash` | No | Reputation facts for the address when available |
+| `ip` | `String` | No | Queried IPv4 address |
+| `is_abuser` | `Boolean` | No | Address currently associated with abuse activity |
+| `is_bogon` | `Boolean` | No | Reserved or unrouted address space |
+| `is_datacenter` | `Boolean` | No | Datacenter or hosting infrastructure |
+| `is_proxy` | `Boolean` | No | Proxy infrastructure |
+| `is_vpn` | `Boolean` | No | VPN infrastructure |
+| `known` | `Boolean` | No | Whether the address has current reputation signals |
+| `location` | `Hash` | No | Approximate geolocation information |
+| `non_residential_forced` | `Boolean` | No | Whether the address is explicitly classified as non-residential |
+| `non_residential_score` | `Float` | No | Numeric score for non-residential infrastructure |
+| `rir` | `String` | No | Regional Internet Registry |
 
 ### Operations
 

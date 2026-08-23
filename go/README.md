@@ -6,7 +6,7 @@ The Golang SDK for the IpReputation API — an entity-oriented client using stan
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Detail(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -264,23 +264,23 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"abuse"` |  |
-| `"abuse_score"` |  |
-| `"asn"` |  |
-| `"company"` |  |
-| `"elapsed_ms"` |  |
-| `"facts"` |  |
-| `"ip"` |  |
-| `"is_abuser"` |  |
-| `"is_bogon"` |  |
-| `"is_datacenter"` |  |
-| `"is_proxy"` |  |
-| `"is_vpn"` |  |
-| `"known"` |  |
-| `"location"` |  |
-| `"non_residential_forced"` |  |
-| `"non_residential_score"` |  |
-| `"rir"` |  |
+| `"abuse"` | Abuse contact information |
+| `"abuse_score"` | Numeric abuse score from 0 to 1. |
+| `"asn"` | Autonomous System Number profile |
+| `"company"` | Network owner profile |
+| `"elapsed_ms"` | Server-side lookup time in milliseconds |
+| `"facts"` | Reputation facts for the address when available |
+| `"ip"` | Queried IPv4 address |
+| `"is_abuser"` | Address currently associated with abuse activity |
+| `"is_bogon"` | Reserved or unrouted address space |
+| `"is_datacenter"` | Datacenter or hosting infrastructure |
+| `"is_proxy"` | Proxy infrastructure |
+| `"is_vpn"` | VPN infrastructure |
+| `"known"` | Whether the address has current reputation signals |
+| `"location"` | Approximate geolocation information |
+| `"non_residential_forced"` | Whether the address is explicitly classified as non-residential |
+| `"non_residential_score"` | Numeric score for non-residential infrastructure |
+| `"rir"` | Regional Internet Registry |
 
 Operations: Load.
 
@@ -314,23 +314,23 @@ Create an instance: `detail := client.Detail(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abuse` | `map[string]any` |  |
-| `abuse_score` | `float64` |  |
-| `asn` | `map[string]any` |  |
-| `company` | `map[string]any` |  |
-| `elapsed_ms` | `float64` |  |
-| `facts` | `map[string]any` |  |
-| `ip` | `string` |  |
-| `is_abuser` | `bool` |  |
-| `is_bogon` | `bool` |  |
-| `is_datacenter` | `bool` |  |
-| `is_proxy` | `bool` |  |
-| `is_vpn` | `bool` |  |
-| `known` | `bool` |  |
-| `location` | `map[string]any` |  |
-| `non_residential_forced` | `bool` |  |
-| `non_residential_score` | `float64` |  |
-| `rir` | `string` |  |
+| `abuse` | `map[string]any` | Abuse contact information |
+| `abuse_score` | `float64` | Numeric abuse score from 0 to 1. |
+| `asn` | `map[string]any` | Autonomous System Number profile |
+| `company` | `map[string]any` | Network owner profile |
+| `elapsed_ms` | `float64` | Server-side lookup time in milliseconds |
+| `facts` | `map[string]any` | Reputation facts for the address when available |
+| `ip` | `string` | Queried IPv4 address |
+| `is_abuser` | `bool` | Address currently associated with abuse activity |
+| `is_bogon` | `bool` | Reserved or unrouted address space |
+| `is_datacenter` | `bool` | Datacenter or hosting infrastructure |
+| `is_proxy` | `bool` | Proxy infrastructure |
+| `is_vpn` | `bool` | VPN infrastructure |
+| `known` | `bool` | Whether the address has current reputation signals |
+| `location` | `map[string]any` | Approximate geolocation information |
+| `non_residential_forced` | `bool` | Whether the address is explicitly classified as non-residential |
+| `non_residential_score` | `float64` | Numeric score for non-residential infrastructure |
+| `rir` | `string` | Regional Internet Registry |
 
 #### Example: Load
 

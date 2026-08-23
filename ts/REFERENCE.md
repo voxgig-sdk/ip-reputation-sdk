@@ -129,23 +129,23 @@ const detail = client.Detail()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abuse` | `Record<string, any>` | No |  |
-| `abuse_score` | `number` | No |  |
-| `asn` | `Record<string, any>` | No |  |
-| `company` | `Record<string, any>` | No |  |
-| `elapsed_ms` | `number` | No |  |
-| `facts` | `Record<string, any>` | No |  |
-| `ip` | `string` | No |  |
-| `is_abuser` | `boolean` | No |  |
-| `is_bogon` | `boolean` | No |  |
-| `is_datacenter` | `boolean` | No |  |
-| `is_proxy` | `boolean` | No |  |
-| `is_vpn` | `boolean` | No |  |
-| `known` | `boolean` | No |  |
-| `location` | `Record<string, any>` | No |  |
-| `non_residential_forced` | `boolean` | No |  |
-| `non_residential_score` | `number` | No |  |
-| `rir` | `string` | No |  |
+| `abuse` | `Record<string, any>` | No | Abuse contact information |
+| `abuse_score` | `number` | No | Numeric abuse score from 0 to 1. |
+| `asn` | `Record<string, any>` | No | Autonomous System Number profile |
+| `company` | `Record<string, any>` | No | Network owner profile |
+| `elapsed_ms` | `number` | No | Server-side lookup time in milliseconds |
+| `facts` | `Record<string, any>` | No | Reputation facts for the address when available |
+| `ip` | `string` | No | Queried IPv4 address |
+| `is_abuser` | `boolean` | No | Address currently associated with abuse activity |
+| `is_bogon` | `boolean` | No | Reserved or unrouted address space |
+| `is_datacenter` | `boolean` | No | Datacenter or hosting infrastructure |
+| `is_proxy` | `boolean` | No | Proxy infrastructure |
+| `is_vpn` | `boolean` | No | VPN infrastructure |
+| `known` | `boolean` | No | Whether the address has current reputation signals |
+| `location` | `Record<string, any>` | No | Approximate geolocation information |
+| `non_residential_forced` | `boolean` | No | Whether the address is explicitly classified as non-residential |
+| `non_residential_score` | `number` | No | Numeric score for non-residential infrastructure |
+| `rir` | `string` | No | Regional Internet Registry |
 
 ### Operations
 

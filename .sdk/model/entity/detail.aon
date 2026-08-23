@@ -8,86 +8,103 @@ main: kit: entity: detail: {
     {
       name: "abuse"
       req: false
+      short: "Abuse contact information"
       type: "`$OBJECT`"
     }
     {
       name: "abuse_score"
       req: false
+      short: "Numeric abuse score from 0 to 1."
       type: "`$NUMBER`"
     }
     {
       name: "asn"
       req: false
+      short: "Autonomous System Number profile"
       type: "`$OBJECT`"
     }
     {
       name: "company"
       req: false
+      short: "Network owner profile"
       type: "`$OBJECT`"
     }
     {
       name: "elapsed_ms"
       req: false
+      short: "Server-side lookup time in milliseconds"
       type: "`$NUMBER`"
     }
     {
       name: "facts"
       req: false
+      short: "Reputation facts for the address when available"
       type: "`$OBJECT`"
     }
     {
       name: "ip"
       req: false
+      short: "Queried IPv4 address"
       type: "`$STRING`"
     }
     {
       name: "is_abuser"
       req: false
+      short: "Address currently associated with abuse activity"
       type: "`$BOOLEAN`"
     }
     {
       name: "is_bogon"
       req: false
+      short: "Reserved or unrouted address space"
       type: "`$BOOLEAN`"
     }
     {
       name: "is_datacenter"
       req: false
+      short: "Datacenter or hosting infrastructure"
       type: "`$BOOLEAN`"
     }
     {
       name: "is_proxy"
       req: false
+      short: "Proxy infrastructure"
       type: "`$BOOLEAN`"
     }
     {
       name: "is_vpn"
       req: false
+      short: "VPN infrastructure"
       type: "`$BOOLEAN`"
     }
     {
       name: "known"
       req: false
+      short: "Whether the address has current reputation signals"
       type: "`$BOOLEAN`"
     }
     {
       name: "location"
       req: false
+      short: "Approximate geolocation information"
       type: "`$OBJECT`"
     }
     {
       name: "non_residential_forced"
       req: false
+      short: "Whether the address is explicitly classified as non-residential"
       type: "`$BOOLEAN`"
     }
     {
       name: "non_residential_score"
       req: false
+      short: "Numeric score for non-residential infrastructure"
       type: "`$NUMBER`"
     }
     {
       name: "rir"
       req: false
+      short: "Regional Internet Registry"
       type: "`$STRING`"
     }
   ]

@@ -103,23 +103,23 @@ fmt.Println(detail.GetName()) // "detail"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abuse` | `map[string]any` | No |  |
-| `abuse_score` | `float64` | No |  |
-| `asn` | `map[string]any` | No |  |
-| `company` | `map[string]any` | No |  |
-| `elapsed_ms` | `float64` | No |  |
-| `facts` | `map[string]any` | No |  |
-| `ip` | `string` | No |  |
-| `is_abuser` | `bool` | No |  |
-| `is_bogon` | `bool` | No |  |
-| `is_datacenter` | `bool` | No |  |
-| `is_proxy` | `bool` | No |  |
-| `is_vpn` | `bool` | No |  |
-| `known` | `bool` | No |  |
-| `location` | `map[string]any` | No |  |
-| `non_residential_forced` | `bool` | No |  |
-| `non_residential_score` | `float64` | No |  |
-| `rir` | `string` | No |  |
+| `abuse` | `map[string]any` | No | Abuse contact information |
+| `abuse_score` | `float64` | No | Numeric abuse score from 0 to 1. |
+| `asn` | `map[string]any` | No | Autonomous System Number profile |
+| `company` | `map[string]any` | No | Network owner profile |
+| `elapsed_ms` | `float64` | No | Server-side lookup time in milliseconds |
+| `facts` | `map[string]any` | No | Reputation facts for the address when available |
+| `ip` | `string` | No | Queried IPv4 address |
+| `is_abuser` | `bool` | No | Address currently associated with abuse activity |
+| `is_bogon` | `bool` | No | Reserved or unrouted address space |
+| `is_datacenter` | `bool` | No | Datacenter or hosting infrastructure |
+| `is_proxy` | `bool` | No | Proxy infrastructure |
+| `is_vpn` | `bool` | No | VPN infrastructure |
+| `known` | `bool` | No | Whether the address has current reputation signals |
+| `location` | `map[string]any` | No | Approximate geolocation information |
+| `non_residential_forced` | `bool` | No | Whether the address is explicitly classified as non-residential |
+| `non_residential_score` | `float64` | No | Numeric score for non-residential infrastructure |
+| `rir` | `string` | No | Regional Internet Registry |
 
 ### Operations
 
