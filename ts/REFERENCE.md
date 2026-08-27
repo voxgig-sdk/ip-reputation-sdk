@@ -135,6 +135,7 @@ const detail = client.Detail()
 | `company` | `Record<string, any>` | No | Network owner profile |
 | `elapsed_ms` | `number` | No | Server-side lookup time in milliseconds |
 | `facts` | `Record<string, any>` | No | Reputation facts for the address when available |
+| `id` | `string` | No |  |
 | `ip` | `string` | No | Queried IPv4 address |
 | `is_abuser` | `boolean` | No | Address currently associated with abuse activity |
 | `is_bogon` | `boolean` | No | Reserved or unrouted address space |

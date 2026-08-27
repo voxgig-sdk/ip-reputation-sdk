@@ -104,6 +104,7 @@ detail = client.Detail
 | `company` | `Hash` | No | Network owner profile |
 | `elapsed_ms` | `Float` | No | Server-side lookup time in milliseconds |
 | `facts` | `Hash` | No | Reputation facts for the address when available |
+| `id` | `String` | No |  |
 | `ip` | `String` | No | Queried IPv4 address |
 | `is_abuser` | `Boolean` | No | Address currently associated with abuse activity |
 | `is_bogon` | `Boolean` | No | Reserved or unrouted address space |

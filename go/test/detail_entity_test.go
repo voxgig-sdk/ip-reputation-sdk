@@ -61,13 +61,19 @@ func TestDetailEntity(t *testing.T) {
 
 		// LOAD
 		detailRef01Ent := client.Detail(nil)
-		detailRef01MatchDt0 := map[string]any{}
+		detailRef01MatchDt0 := map[string]any{
+			"id": detailRef01Data["id"],
+		}
 		detailRef01DataDt0Loaded, err := detailRef01Ent.Load(detailRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if detailRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		detailRef01DataDt0LoadResult := core.ToMapAny(entityData(detailRef01DataDt0Loaded))
+		if detailRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if detailRef01DataDt0LoadResult["id"] != detailRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

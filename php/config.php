@@ -42,6 +42,7 @@ class IpReputationConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -89,6 +90,10 @@ class IpReputationConfig
               'name' => 'facts',
               'short' => 'Reputation facts for the address when available',
               'type' => '`$OBJECT`',
+            ],
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
             ],
             [
               'name' => 'ip',

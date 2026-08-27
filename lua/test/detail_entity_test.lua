@@ -44,10 +44,14 @@ describe("DetailEntity", function()
 
     -- LOAD
     local detail_ref01_ent = client:Detail(nil)
-    local detail_ref01_match_dt0 = {}
+    local detail_ref01_match_dt0 = {
+      id = detail_ref01_data["id"],
+    }
     local detail_ref01_data_dt0_loaded, err = detail_ref01_ent:load(detail_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(detail_ref01_data_dt0_loaded)
+    local detail_ref01_data_dt0_load_result = helpers.to_map(type(detail_ref01_data_dt0_loaded) == 'table' and detail_ref01_data_dt0_loaded.data_get and detail_ref01_data_dt0_loaded:data_get() or detail_ref01_data_dt0_loaded)
+    assert.is_not_nil(detail_ref01_data_dt0_load_result)
+    assert.are.equal(detail_ref01_data_dt0_load_result["id"], detail_ref01_data["id"])
 
   end)
 end)

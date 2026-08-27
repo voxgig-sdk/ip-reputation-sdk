@@ -28,6 +28,9 @@
 # @!attribute [rw] facts
 #   @return [Hash, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] ip
 #   @return [String, nil]
 #
@@ -67,6 +70,7 @@ Detail = Struct.new(
   :company,
   :elapsed_ms,
   :facts,
+  :id,
   :ip,
   :is_abuser,
   :is_bogon,

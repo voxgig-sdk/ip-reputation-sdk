@@ -48,9 +48,13 @@ class DetailEntityTest extends TestCase
 
         // LOAD
         $detail_ref01_ent = $client->Detail(null);
-        $detail_ref01_match_dt0 = [];
+        $detail_ref01_match_dt0 = [
+            "id" => $detail_ref01_data["id"],
+        ];
         $detail_ref01_data_dt0_loaded = $detail_ref01_ent->load($detail_ref01_match_dt0, null);
-        $this->assertNotNull($detail_ref01_data_dt0_loaded);
+        $detail_ref01_data_dt0_load_result = Helpers::to_map(is_object($detail_ref01_data_dt0_loaded) && method_exists($detail_ref01_data_dt0_loaded, 'data_get') ? $detail_ref01_data_dt0_loaded->data_get() : $detail_ref01_data_dt0_loaded);
+        $this->assertNotNull($detail_ref01_data_dt0_load_result);
+        $this->assertEquals($detail_ref01_data_dt0_load_result["id"], $detail_ref01_data["id"]);
 
     }
 }

@@ -254,6 +254,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `company` | Network owner profile |
 | `elapsed_ms` | Server-side lookup time in milliseconds |
 | `facts` | Reputation facts for the address when available |
+| `id` |  |
 | `ip` | Queried IPv4 address |
 | `is_abuser` | Address currently associated with abuse activity |
 | `is_bogon` | Reserved or unrouted address space |
@@ -304,6 +305,7 @@ Create an instance: `detail = client.Detail()`
 | `company` | `dict` | Network owner profile |
 | `elapsed_ms` | `float` | Server-side lookup time in milliseconds |
 | `facts` | `dict` | Reputation facts for the address when available |
+| `id` | `str` |  |
 | `ip` | `str` | Queried IPv4 address |
 | `is_abuser` | `bool` | Address currently associated with abuse activity |
 | `is_bogon` | `bool` | Reserved or unrouted address space |

@@ -59,9 +59,12 @@ describe('DetailEntity', async () => {
 
     let detail_ref01_data = Object.values(setup.data.existing.detail)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const detail_ref01_ent = client.Detail()
+    const detail_ref01_match_dt0: any = {}
+    detail_ref01_match_dt0.id = detail_ref01_data.id
+    const detail_ref01_data_dt0 = (await detail_ref01_ent.load(detail_ref01_match_dt0)).data()
+    assert(detail_ref01_data_dt0.id === detail_ref01_data.id)
 
 
   })

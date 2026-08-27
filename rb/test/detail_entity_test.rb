@@ -41,9 +41,13 @@ class DetailEntityTest < Minitest::Test
 
     # LOAD
     detail_ref01_ent = client.Detail(nil)
-    detail_ref01_match_dt0 = {}
+    detail_ref01_match_dt0 = {
+      "id" => detail_ref01_data["id"],
+    }
     detail_ref01_data_dt0_loaded = detail_ref01_ent.load(detail_ref01_match_dt0, nil)
-    assert !detail_ref01_data_dt0_loaded.nil?
+    detail_ref01_data_dt0_load_result = Helpers.to_map(detail_ref01_data_dt0_loaded.respond_to?(:data_get) ? detail_ref01_data_dt0_loaded.data_get : detail_ref01_data_dt0_loaded)
+    assert !detail_ref01_data_dt0_load_result.nil?
+    assert_equal detail_ref01_data_dt0_load_result["id"], detail_ref01_data["id"]
 
   end
 end

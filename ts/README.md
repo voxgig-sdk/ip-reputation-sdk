@@ -150,7 +150,7 @@ await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -301,6 +301,7 @@ The `prepare()` method returns:
 | `company` | Network owner profile |
 | `elapsed_ms` | Server-side lookup time in milliseconds |
 | `facts` | Reputation facts for the address when available |
+| `id` |  |
 | `ip` | Queried IPv4 address |
 | `is_abuser` | Address currently associated with abuse activity |
 | `is_bogon` | Reserved or unrouted address space |
@@ -351,6 +352,7 @@ Create an instance: `const detail = client.Detail()`
 | `company` | `Record<string, any>` | Network owner profile |
 | `elapsed_ms` | `number` | Server-side lookup time in milliseconds |
 | `facts` | `Record<string, any>` | Reputation facts for the address when available |
+| `id` | `string` |  |
 | `ip` | `string` | Queried IPv4 address |
 | `is_abuser` | `boolean` | Address currently associated with abuse activity |
 | `is_bogon` | `boolean` | Reserved or unrouted address space |

@@ -23,6 +23,7 @@ class Detail(TypedDict, total=False):
     company: dict
     elapsed_ms: float
     facts: dict
+    id: str
     ip: str
     is_abuser: bool
     is_bogon: bool

@@ -42,6 +42,11 @@ main: kit: entity: detail: {
       type: "`$OBJECT`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "ip"
       req: false
       short: "Queried IPv4 address"
@@ -108,6 +113,11 @@ main: kit: entity: detail: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "detail"
   op: {

@@ -12,6 +12,7 @@ export interface Detail {
   company?: Record<string, any>
   elapsed_ms?: number
   facts?: Record<string, any>
+  id?: string
   ip?: string
   is_abuser?: boolean
   is_bogon?: boolean

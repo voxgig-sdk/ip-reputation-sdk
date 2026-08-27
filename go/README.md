@@ -270,6 +270,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"company"` | Network owner profile |
 | `"elapsed_ms"` | Server-side lookup time in milliseconds |
 | `"facts"` | Reputation facts for the address when available |
+| `"id"` |  |
 | `"ip"` | Queried IPv4 address |
 | `"is_abuser"` | Address currently associated with abuse activity |
 | `"is_bogon"` | Reserved or unrouted address space |
@@ -320,6 +321,7 @@ Create an instance: `detail := client.Detail(nil)`
 | `company` | `map[string]any` | Network owner profile |
 | `elapsed_ms` | `float64` | Server-side lookup time in milliseconds |
 | `facts` | `map[string]any` | Reputation facts for the address when available |
+| `id` | `string` |  |
 | `ip` | `string` | Queried IPv4 address |
 | `is_abuser` | `bool` | Address currently associated with abuse activity |
 | `is_bogon` | `bool` | Reserved or unrouted address space |

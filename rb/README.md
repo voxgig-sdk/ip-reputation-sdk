@@ -251,6 +251,7 @@ returns a result `Hash` with these keys:
 | `company` | Network owner profile |
 | `elapsed_ms` | Server-side lookup time in milliseconds |
 | `facts` | Reputation facts for the address when available |
+| `id` |  |
 | `ip` | Queried IPv4 address |
 | `is_abuser` | Address currently associated with abuse activity |
 | `is_bogon` | Reserved or unrouted address space |
@@ -301,6 +302,7 @@ Create an instance: `detail = client.Detail`
 | `company` | `Hash` | Network owner profile |
 | `elapsed_ms` | `Float` | Server-side lookup time in milliseconds |
 | `facts` | `Hash` | Reputation facts for the address when available |
+| `id` | `String` |  |
 | `ip` | `String` | Queried IPv4 address |
 | `is_abuser` | `Boolean` | Address currently associated with abuse activity |
 | `is_bogon` | `Boolean` | Reserved or unrouted address space |

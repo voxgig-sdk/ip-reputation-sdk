@@ -238,6 +238,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `company` | Network owner profile |
 | `elapsed_ms` | Server-side lookup time in milliseconds |
 | `facts` | Reputation facts for the address when available |
+| `id` |  |
 | `ip` | Queried IPv4 address |
 | `is_abuser` | Address currently associated with abuse activity |
 | `is_bogon` | Reserved or unrouted address space |
@@ -288,6 +289,7 @@ Create an instance: `local detail = client:Detail(nil)`
 | `company` | `table` | Network owner profile |
 | `elapsed_ms` | `number` | Server-side lookup time in milliseconds |
 | `facts` | `table` | Reputation facts for the address when available |
+| `id` | `string` |  |
 | `ip` | `string` | Queried IPv4 address |
 | `is_abuser` | `boolean` | Address currently associated with abuse activity |
 | `is_bogon` | `boolean` | Reserved or unrouted address space |

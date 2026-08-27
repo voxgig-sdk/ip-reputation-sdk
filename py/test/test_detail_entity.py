@@ -48,9 +48,13 @@ class TestDetailEntity:
 
         # LOAD
         detail_ref01_ent = client.Detail(None)
-        detail_ref01_match_dt0 = {}
+        detail_ref01_match_dt0 = {
+            "id": detail_ref01_data["id"],
+        }
         detail_ref01_data_dt0_loaded = detail_ref01_ent.load(detail_ref01_match_dt0, None)
-        assert detail_ref01_data_dt0_loaded is not None
+        detail_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(detail_ref01_data_dt0_loaded))
+        assert detail_ref01_data_dt0_load_result is not None
+        assert detail_ref01_data_dt0_load_result["id"] == detail_ref01_data["id"]
 
 
 

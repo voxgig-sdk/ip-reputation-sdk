@@ -98,6 +98,7 @@ detail = client.Detail()
 | `company` | `dict` | No | Network owner profile |
 | `elapsed_ms` | `float` | No | Server-side lookup time in milliseconds |
 | `facts` | `dict` | No | Reputation facts for the address when available |
+| `id` | `str` | No |  |
 | `ip` | `str` | No | Queried IPv4 address |
 | `is_abuser` | `bool` | No | Address currently associated with abuse activity |
 | `is_bogon` | `bool` | No | Reserved or unrouted address space |

@@ -21,6 +21,7 @@ class Detail
     public ?array $company = null;
     public ?float $elapsed_ms = null;
     public ?array $facts = null;
+    public ?string $id = null;
     public ?string $ip = null;
     public ?bool $is_abuser = null;
     public ?bool $is_bogon = null;

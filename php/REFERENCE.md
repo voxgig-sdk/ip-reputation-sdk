@@ -103,6 +103,7 @@ $detail = $client->Detail();
 | `company` | `array` | No | Network owner profile |
 | `elapsed_ms` | `float` | No | Server-side lookup time in milliseconds |
 | `facts` | `array` | No | Reputation facts for the address when available |
+| `id` | `string` | No |  |
 | `ip` | `string` | No | Queried IPv4 address |
 | `is_abuser` | `bool` | No | Address currently associated with abuse activity |
 | `is_bogon` | `bool` | No | Reserved or unrouted address space |

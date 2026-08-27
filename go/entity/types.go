@@ -20,6 +20,7 @@ type Detail struct {
 	Company *map[string]any `json:"company,omitempty"`
 	ElapsedMs *float64 `json:"elapsed_ms,omitempty"`
 	Facts *map[string]any `json:"facts,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Ip *string `json:"ip,omitempty"`
 	IsAbuser *bool `json:"is_abuser,omitempty"`
 	IsBogon *bool `json:"is_bogon,omitempty"`

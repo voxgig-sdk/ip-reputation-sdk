@@ -13,6 +13,7 @@
 ---@field company? table
 ---@field elapsed_ms? number
 ---@field facts? table
+---@field id? string
 ---@field ip? string
 ---@field is_abuser? boolean
 ---@field is_bogon? boolean
