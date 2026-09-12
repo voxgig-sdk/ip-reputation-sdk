@@ -24,10 +24,16 @@ main: kit: entity: ip_reputation: {
           }
           method: "GET"
           orig: "/v1/score/{ip}"
-          parts: [
-            "v1"
-            "score"
-            "{ip}"
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "score"
+            }
+            {
+              var: "ip"
+            }
           ]
           select: {
             exist: [

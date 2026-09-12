@@ -67,6 +67,7 @@ class IpReputationConfig
               'type' => '`$OBJECT`',
             ],
             [
+              'format' => 'float',
               'name' => 'abuse_score',
               'short' => 'Numeric abuse score from 0 to 1.',
               'type' => '`$NUMBER`',
@@ -82,6 +83,7 @@ class IpReputationConfig
               'type' => '`$OBJECT`',
             ],
             [
+              'format' => 'float',
               'name' => 'elapsed_ms',
               'short' => 'Server-side lookup time in milliseconds',
               'type' => '`$NUMBER`',
@@ -141,6 +143,7 @@ class IpReputationConfig
               'type' => '`$BOOLEAN`',
             ],
             [
+              'format' => 'float',
               'name' => 'non_residential_score',
               'short' => 'Numeric score for non-residential infrastructure',
               'type' => '`$NUMBER`',
@@ -150,6 +153,10 @@ class IpReputationConfig
               'short' => 'Regional Internet Registry',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'detail',
           'op' => [
@@ -173,14 +180,20 @@ class IpReputationConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/detail/{ip}',
-                  'parts' => [
-                    'v1',
-                    'detail',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'ip' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'v1',
+                    ],
+                    [
+                      'lit' => 'detail',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -191,6 +204,11 @@ class IpReputationConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'v1',
+                    'detail',
+                    '{id}',
                   ],
                 ],
               ],
@@ -224,10 +242,16 @@ class IpReputationConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/score/{ip}',
-                  'parts' => [
-                    'v1',
-                    'score',
-                    '{ip}',
+                  'segments' => [
+                    [
+                      'lit' => 'v1',
+                    ],
+                    [
+                      'lit' => 'score',
+                    ],
+                    [
+                      'var' => 'ip',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -237,6 +261,11 @@ class IpReputationConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'v1',
+                    'score',
+                    '{ip}',
                   ],
                 ],
               ],

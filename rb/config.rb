@@ -53,6 +53,7 @@ module IpReputationConfig
               "type" => "`$OBJECT`",
             },
             {
+              "format" => "float",
               "name" => "abuse_score",
               "short" => "Numeric abuse score from 0 to 1.",
               "type" => "`$NUMBER`",
@@ -68,6 +69,7 @@ module IpReputationConfig
               "type" => "`$OBJECT`",
             },
             {
+              "format" => "float",
               "name" => "elapsed_ms",
               "short" => "Server-side lookup time in milliseconds",
               "type" => "`$NUMBER`",
@@ -127,6 +129,7 @@ module IpReputationConfig
               "type" => "`$BOOLEAN`",
             },
             {
+              "format" => "float",
               "name" => "non_residential_score",
               "short" => "Numeric score for non-residential infrastructure",
               "type" => "`$NUMBER`",
@@ -137,6 +140,10 @@ module IpReputationConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "detail",
           "op" => {
             "load" => {
@@ -159,16 +166,22 @@ module IpReputationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/detail/{ip}",
-                  "parts" => [
-                    "v1",
-                    "detail",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "ip" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "detail",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -178,6 +191,11 @@ module IpReputationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "detail",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -210,10 +228,16 @@ module IpReputationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/score/{ip}",
-                  "parts" => [
-                    "v1",
-                    "score",
-                    "{ip}",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "score",
+                    },
+                    {
+                      "var" => "ip",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -224,6 +248,11 @@ module IpReputationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "score",
+                    "{ip}",
+                  ],
                 },
               ],
             },

@@ -81,7 +81,7 @@ def ip_reputation_basic_setup(extra)
     "IP_REPUTATION_TEST_IP_REPUTATION_ENTID" => idmap,
     "IP_REPUTATION_TEST_LIVE" => "FALSE",
     "IP_REPUTATION_TEST_EXPLAIN" => "FALSE",
-    "IP_REPUTATION_APIKEY" => "NONE",
+    "IP_REPUTATION_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -92,6 +92,9 @@ def ip_reputation_basic_setup(extra)
 
   if env["IP_REPUTATION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["IP_REPUTATION_APIKEY"],
       },

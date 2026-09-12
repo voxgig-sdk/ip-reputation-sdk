@@ -45,6 +45,7 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "abuse_score",
 						"short": "Numeric abuse score from 0 to 1.",
 						"type": "`$NUMBER`",
@@ -60,6 +61,7 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "elapsed_ms",
 						"short": "Server-side lookup time in milliseconds",
 						"type": "`$NUMBER`",
@@ -119,6 +121,7 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "non_residential_score",
 						"short": "Numeric score for non-residential infrastructure",
 						"type": "`$NUMBER`",
@@ -128,6 +131,10 @@ func MakeConfig() map[string]any {
 						"short": "Regional Internet Registry",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "detail",
 				"op": map[string]any{
@@ -151,14 +158,20 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/detail/{ip}",
-								"parts": []any{
-									"v1",
-									"detail",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"ip": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "detail",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -169,6 +182,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"detail",
+									"{id}",
 								},
 							},
 						},
@@ -202,10 +220,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/score/{ip}",
-								"parts": []any{
-									"v1",
-									"score",
-									"{ip}",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "score",
+									},
+									map[string]any{
+										"var": "ip",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -215,6 +239,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"score",
+									"{ip}",
 								},
 							},
 						},
@@ -230,6 +259,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

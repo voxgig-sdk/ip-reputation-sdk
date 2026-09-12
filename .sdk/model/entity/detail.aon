@@ -12,6 +12,7 @@ main: kit: entity: detail: {
       type: "`$OBJECT`"
     }
     {
+      format: "float"
       name: "abuse_score"
       req: false
       short: "Numeric abuse score from 0 to 1."
@@ -30,6 +31,7 @@ main: kit: entity: detail: {
       type: "`$OBJECT`"
     }
     {
+      format: "float"
       name: "elapsed_ms"
       req: false
       short: "Server-side lookup time in milliseconds"
@@ -101,6 +103,7 @@ main: kit: entity: detail: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "float"
       name: "non_residential_score"
       req: false
       short: "Numeric score for non-residential infrastructure"
@@ -139,16 +142,22 @@ main: kit: entity: detail: {
           }
           method: "GET"
           orig: "/v1/detail/{ip}"
-          parts: [
-            "v1"
-            "detail"
-            "{id}"
-          ]
           rename: {
             param: {
               ip: "id"
             }
           }
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "detail"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

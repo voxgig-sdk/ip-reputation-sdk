@@ -1,6 +1,14 @@
 # IpReputation SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -62,6 +70,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "float",
             "name": "abuse_score",
             "short": "Numeric abuse score from 0 to 1.",
             "type": "`$NUMBER`",
@@ -77,6 +86,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "float",
             "name": "elapsed_ms",
             "short": "Server-side lookup time in milliseconds",
             "type": "`$NUMBER`",
@@ -136,6 +146,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "float",
             "name": "non_residential_score",
             "short": "Numeric score for non-residential infrastructure",
             "type": "`$NUMBER`",
@@ -146,6 +157,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "detail",
         "op": {
           "load": {
@@ -168,16 +183,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/detail/{ip}",
-                "parts": [
-                  "v1",
-                  "detail",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "ip": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "detail",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -187,6 +208,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "detail",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -219,10 +245,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/score/{ip}",
-                "parts": [
-                  "v1",
-                  "score",
-                  "{ip}",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "score",
+                  },
+                  {
+                    "var": "ip",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -233,6 +265,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "score",
+                  "{ip}",
+                ],
               },
             ],
           },
