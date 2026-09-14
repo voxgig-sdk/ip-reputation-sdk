@@ -105,7 +105,7 @@ local result, err = client:Detail():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ip-reputation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/releases) |
 | Python | `voxgig-sdk-ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/releases) |
 | PHP | `voxgig-sdk/ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/ip-reputation-sdk/go` | `go get github.com/voxgig-sdk/ip-reputation-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Detail():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { IpReputationSDK } from '@voxgig-sdk/ip-reputation'
+import { IpReputationSDK } from '@voxgig-sdk/ip-reputation-sdk'
 
 const client = new IpReputationSDK({
   apikey: process.env.IP_REPUTATION_APIKEY,

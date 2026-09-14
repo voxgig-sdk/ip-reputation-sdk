@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { IpReputationSDK } from '@voxgig-sdk/ip-reputation'
+import { IpReputationSDK } from '@voxgig-sdk/ip-reputation-sdk'
 
 const client = new IpReputationSDK({
   apikey: process.env.IP_REPUTATION_APIKEY,
@@ -471,7 +471,7 @@ ip-reputation/
 Import the SDK from the package root:
 
 ```ts
-import { IpReputationSDK } from '@voxgig-sdk/ip-reputation'
+import { IpReputationSDK } from '@voxgig-sdk/ip-reputation-sdk'
 ```
 
 ### Entity state
