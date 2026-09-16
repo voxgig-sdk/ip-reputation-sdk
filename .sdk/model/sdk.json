@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "detail": {
           "active": true,
@@ -186,6 +250,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /v1/detail/{ip}",
+                    "json": "{\"operationId\":\"getIpDetail\",\"parameters\":[{\"description\":\"IPv4 address to lookup\",\"in\":\"path\",\"name\":\"ip\",\"required\":true,\"schema\":{\"example\":\"1.1.1.1\",\"pattern\":\"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Detailed profile for an IPv4 address including threat intelligence, network information, and location data\",\"properties\":{\"abuse\":{\"description\":\"Abuse contact information\",\"properties\":{\"address\":{\"description\":\"Physical address\",\"example\":\"PO Box 3646, South Brisbane, QLD 4101, Australia\",\"type\":\"string\"},\"email\":{\"description\":\"Abuse contact email\",\"example\":\"helpdesk@apnic.net\",\"type\":\"string\"},\"name\":{\"description\":\"Abuse contact name or identifier\",\"example\":\"IRT-APNICRANDNET-AU\",\"type\":\"string\"},\"phone\":{\"description\":\"Abuse contact phone number\",\"example\":\"\",\"type\":\"string\"}},\"type\":\"object\"},\"abuse_score\":{\"description\":\"Numeric abuse score from 0 to 1. 0.00-0.30: Low threat, 0.30-0.65: Moderate threat, 0.65-1.00: High threat\",\"example\":0,\"format\":\"float\",\"maximum\":1,\"minimum\":0,\"type\":\"number\"},\"asn\":{\"description\":\"Autonomous System Number profile\",\"properties\":{\"abuse\":{\"description\":\"Abuse contact email\",\"example\":\"abuse@cloudflare.com\",\"type\":\"string\"},\"abuser_score\":{\"description\":\"ASN abuse score with severity rating\",\"example\":\"0.0000 (Low)\",\"type\":\"string\"},\"active\":{\"description\":\"Whether the ASN is currently active\",\"example\":true,\"type\":\"boolean\"},\"asn\":{\"description\":\"Autonomous System Number\",\"example\":13335,\"type\":\"integer\"},\"country\":{\"description\":\"Country code\",\"example\":\"au\",\"type\":\"string\"},\"created\":{\"description\":\"ASN creation date\",\"example\":\"2011-08-10\",\"format\":\"date\",\"type\":\"string\"},\"descr\":{\"description\":\"ASN description\",\"example\":\"CLOUDFLARENET, AU\",\"type\":\"string\"},\"domain\":{\"description\":\"Organization domain\",\"example\":\"cloudflare.com\",\"type\":\"string\"},\"org\":{\"description\":\"Organization name\",\"example\":\"CLOUDFLARENET\",\"type\":\"string\"},\"rir\":{\"description\":\"Regional Internet Registry\",\"example\":\"APNIC\",\"type\":\"string\"},\"route\":{\"description\":\"BGP route prefix\",\"example\":\"1.1.1.0/24\",\"type\":\"string\"},\"type\":{\"description\":\"Network type\",\"example\":\"hosting\",\"type\":\"string\"},\"updated\":{\"description\":\"ASN last update date\",\"example\":\"2023-04-26\",\"format\":\"date\",\"type\":\"string\"}},\"type\":\"object\"},\"company\":{\"description\":\"Network owner profile\",\"properties\":{\"abuser_score\":{\"description\":\"Company abuse score with severity rating\",\"example\":\"0.0000 (Low)\",\"type\":\"string\"},\"domain\":{\"description\":\"Company domain\",\"example\":\"cloudflare.com\",\"type\":\"string\"},\"name\":{\"description\":\"Company or network name\",\"example\":\"CLOUDFLARENET\",\"type\":\"string\"},\"netname\":{\"description\":\"Network name\",\"example\":\"APNIC-LABS\",\"type\":\"string\"},\"network\":{\"description\":\"IP address range\",\"example\":\"1.1.1.0 - 1.1.1.255\",\"type\":\"string\"},\"type\":{\"description\":\"Network type (e.g., hosting, isp, business)\",\"example\":\"hosting\",\"type\":\"string\"}},\"type\":\"object\"},\"elapsed_ms\":{\"description\":\"Server-side lookup time in milliseconds\",\"example\":624.16,\"format\":\"float\",\"type\":\"number\"},\"facts\":{\"description\":\"Reputation facts for the address when available\",\"properties\":{\"known\":{\"description\":\"Whether the address has known reputation signals\",\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"},\"ip\":{\"description\":\"Queried IPv4 address\",\"example\":\"1.1.1.1\",\"type\":\"string\"},\"is_abuser\":{\"description\":\"Address currently associated with abuse activity\",\"example\":false,\"type\":\"boolean\"},\"is_bogon\":{\"description\":\"Reserved or unrouted address space\",\"example\":false,\"type\":\"boolean\"},\"is_datacenter\":{\"description\":\"Datacenter or hosting infrastructure\",\"example\":true,\"type\":\"boolean\"},\"is_proxy\":{\"description\":\"Proxy infrastructure\",\"example\":false,\"type\":\"boolean\"},\"is_vpn\":{\"description\":\"VPN infrastructure\",\"example\":false,\"type\":\"boolean\"},\"known\":{\"description\":\"Whether the address has current reputation signals\",\"example\":false,\"type\":\"boolean\"},\"location\":{\"description\":\"Approximate geolocation information\",\"properties\":{\"accuracy\":{\"description\":\"Location accuracy level (LOW, MEDIUM, HIGH)\",\"example\":\"MEDIUM\",\"type\":\"string\"},\"calling_code\":{\"description\":\"Country calling code\",\"example\":\"61\",\"type\":\"string\"},\"city\":{\"description\":\"City name\",\"example\":\"Sydney\",\"type\":\"string\"},\"continent\":{\"description\":\"Continent code\",\"example\":\"OC\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"example\":\"Australia\",\"type\":\"string\"},\"country_code\":{\"description\":\"ISO country code\",\"example\":\"AU\",\"type\":\"string\"},\"currency_code\":{\"description\":\"Country currency code\",\"example\":\"AUD\",\"type\":\"string\"},\"is_dst\":{\"description\":\"Whether daylight saving time is active\",\"example\":false,\"type\":\"boolean\"},\"is_eu_member\":{\"description\":\"Whether the country is an EU member\",\"example\":false,\"type\":\"boolean\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"example\":-33.8688,\"format\":\"float\",\"type\":\"number\"},\"local_time\":{\"description\":\"Local time at the location\",\"example\":\"2026-07-14T00:32:49+10:00\",\"format\":\"date-time\",\"type\":\"string\"},\"local_time_unix\":{\"description\":\"Local time as Unix timestamp\",\"example\":1783953169,\"type\":\"integer\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"example\":151.2093,\"format\":\"float\",\"type\":\"number\"},\"state\":{\"description\":\"State or region\",\"example\":\"\",\"type\":\"string\"},\"timezone\":{\"description\":\"Timezone identifier\",\"example\":\"Australia/Sydney\",\"type\":\"string\"},\"utcoffset\":{\"description\":\"UTC offset\",\"example\":\"+10:00\",\"type\":\"string\"},\"zip\":{\"description\":\"Postal code\",\"example\":\"\",\"type\":\"string\"}},\"type\":\"object\"},\"non_residential_forced\":{\"description\":\"Whether the address is explicitly classified as non-residential\",\"example\":false,\"type\":\"boolean\"},\"non_residential_score\":{\"description\":\"Numeric score for non-residential infrastructure\",\"example\":0,\"format\":\"float\",\"maximum\":1,\"minimum\":0,\"type\":\"number\"},\"rir\":{\"description\":\"Regional Internet Registry\",\"example\":\"APNIC\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with detailed IP profile\",\"headers\":{\"RateLimit-Limit\":{\"description\":\"Maximum requests per second for this token\",\"schema\":{\"type\":\"integer\"}},\"RateLimit-Remaining\":{\"description\":\"Requests remaining in the current window\",\"schema\":{\"type\":\"integer\"}},\"RateLimit-Reset\":{\"description\":\"Unix timestamp when the counter resets\",\"schema\":{\"type\":\"integer\"}}}},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"The address provided is not a valid IPv4 address\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"The address provided is not a valid IPv4 address\"},\"401\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"The address provided is not a valid IPv4 address\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Missing or invalid token\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"The address provided is not a valid IPv4 address\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\",\"headers\":{\"Retry-After\":{\"description\":\"Number of seconds to wait before retrying\",\"schema\":{\"type\":\"integer\"}}}},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"The address provided is not a valid IPv4 address\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal error on server side\"}},\"security\":[{},{\"BearerAuth\":[]}],\"securitySchemes\":{\"BearerAuth\":{\"bearerFormat\":\"nb_live_...\",\"description\":\"Bearer token for authenticated requests with higher rate limits. Format: `Authorization: Bearer nb_live_...`. Tokens are issued on request by emailing hello@netbait.org with your use case and required rate limit.\",\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"operation\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/v1/detail/{ip}",
@@ -249,6 +319,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /v1/score/{ip}",
+                    "json": "{\"operationId\":\"getIpScore\",\"parameters\":[{\"description\":\"IPv4 address to score\",\"in\":\"path\",\"name\":\"ip\",\"required\":true,\"schema\":{\"example\":\"8.8.8.8\",\"pattern\":\"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"text/plain\":{\"example\":\"0.0412\",\"schema\":{\"example\":0.0412,\"format\":\"float\",\"maximum\":1,\"minimum\":0,\"type\":\"number\"}}},\"description\":\"Successful response with abuse score\",\"headers\":{\"RateLimit-Limit\":{\"description\":\"Maximum requests per second for this token\",\"schema\":{\"type\":\"integer\"}},\"RateLimit-Remaining\":{\"description\":\"Requests remaining in the current window\",\"schema\":{\"type\":\"integer\"}},\"RateLimit-Reset\":{\"description\":\"Unix timestamp when the counter resets\",\"schema\":{\"type\":\"integer\"}}}},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"The address provided is not a valid IPv4 address\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"The address provided is not a valid IPv4 address\"},\"401\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"The address provided is not a valid IPv4 address\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Missing or invalid token\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"The address provided is not a valid IPv4 address\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\",\"headers\":{\"Retry-After\":{\"description\":\"Number of seconds to wait before retrying\",\"schema\":{\"type\":\"integer\"}}}},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"The address provided is not a valid IPv4 address\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal error on server side\"}},\"security\":[{},{\"BearerAuth\":[]}],\"securitySchemes\":{\"BearerAuth\":{\"bearerFormat\":\"nb_live_...\",\"description\":\"Bearer token for authenticated requests with higher rate limits. Format: `Authorization: Bearer nb_live_...`. Tokens are issued on request by emailing hello@netbait.org with your use case and required rate limit.\",\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"operation\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/v1/score/{ip}",
@@ -286,13 +362,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -382,6 +668,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -477,6 +859,48 @@
         "x-documentation": "https://netbait.org/docs"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1031,6 +1455,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1072,7 +1497,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

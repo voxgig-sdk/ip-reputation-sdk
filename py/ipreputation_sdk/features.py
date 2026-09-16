@@ -1,12 +1,18 @@
 # IpReputation SDK feature factory
 
 from ipreputation_sdk.feature.base_feature import IpReputationBaseFeature
+from ipreputation_sdk.feature.ratelimit_feature import IpReputationRatelimitFeature
+from ipreputation_sdk.feature.retry_feature import IpReputationRetryFeature
 from ipreputation_sdk.feature.test_feature import IpReputationTestFeature
+from ipreputation_sdk.feature.timeout_feature import IpReputationTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: IpReputationBaseFeature(),
+    "ratelimit": lambda: IpReputationRatelimitFeature(),
+    "retry": lambda: IpReputationRetryFeature(),
     "test": lambda: IpReputationTestFeature(),
+    "timeout": lambda: IpReputationTimeoutFeature(),
 }
 
 
