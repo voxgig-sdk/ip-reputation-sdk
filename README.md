@@ -105,12 +105,12 @@ local result, err = client:Detail():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ip-reputation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/releases) |
-| Python | `voxgig-sdk-ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/releases) |
-| PHP | `voxgig-sdk/ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ip-reputation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/tags) |
+| Python | `voxgig-sdk-ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/tags) |
+| PHP | `voxgig-sdk/ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/ip-reputation-sdk/go` | `go get github.com/voxgig-sdk/ip-reputation-sdk/go@latest` |
-| Ruby | `voxgig-sdk-ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/releases) |
-| Lua | `voxgig-sdk-ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/releases) |
+| Ruby | `voxgig-sdk-ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/tags) |
+| Lua | `voxgig-sdk-ip-reputation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-reputation-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/ip-reputation-sdk/go-cli` | `go install github.com/voxgig-sdk/ip-reputation-sdk/go-cli/cmd/ip-reputation@latest` |
 | Go MCP server | `github.com/voxgig-sdk/ip-reputation-sdk/go-mcp` | `go get github.com/voxgig-sdk/ip-reputation-sdk/go-mcp@latest` |
 

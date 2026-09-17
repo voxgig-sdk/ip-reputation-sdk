@@ -131,12 +131,12 @@ class Config {
 
     entity: {
       
-      detail: {
-      },
-
-      ip_reputation: {
-      },
-
+        detail: {
+        },
+  
+        ip_reputation: {
+        },
+  
     }
   }
 

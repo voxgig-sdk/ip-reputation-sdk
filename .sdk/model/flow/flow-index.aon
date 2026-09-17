@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicDetailFlow.aon"
-@"BasicIpReputationFlow.aon"
+@"./BasicDetailFlow.aon"
+@"./BasicIpReputationFlow.aon"

@@ -1,4 +1,4 @@
 # Entity Models
 
-@"detail.aon"
-@"ip_reputation.aon"
+@"./detail.aon"
+@"./ip_reputation.aon"
